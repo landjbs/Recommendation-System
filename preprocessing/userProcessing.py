@@ -2,7 +2,6 @@ from tqdm import tqdm
 
 from utils.objectSaver import save
 
-
 def process_user_data(userPath):
     userDict = {}
     with open(userPath, 'r') as userFile:
