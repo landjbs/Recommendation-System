@@ -11,6 +11,7 @@ class User():
         self.ratingList = []
 
     def add_rating(self, ratingObj):
+        """ Add rating object of a moive """
         self.ratingList.append(ratingObj)
 
     def sort_ratings(self, axis):
