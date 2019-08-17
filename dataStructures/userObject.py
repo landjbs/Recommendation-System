@@ -2,6 +2,8 @@
 Defines user object to store data about a specific user's preferences
 """
 
+import numpy as np
+
 class User():
     def __init__(self, id):
         self.id = id
@@ -14,9 +16,14 @@ class User():
     def sort_ratings(self, axis):
         cleanAxis = axis.lower().strip()
         if (cleanAxis =='date'):
-            get_score = lambda ratingObj : ratingObj.date
+            sort_key = lambda ratingObj : ratingObj.date
         elif (cleanAxis == 'rating'):
-            get_score = lambda ratingObj : ratingObj.rating
+            sort_key = lambda ratingObj : ratingObj.rating
         else:
             raise ValueError('Axis must be either "date" or "rating".')
-        self.ratingList.sort(reverse=True, key=get_score())
+        self.ratingList.sort(reverse=True, key=sort_key())
+
+    def calc_average_rating(self):
+        get_rating = lambda ratingObj : ratingObj.rating
+        ratingList = [get_rating(ratingObj) for ratingObj in self.ratingList]
+        return np.mean(ratingList)
