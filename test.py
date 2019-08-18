@@ -9,7 +9,7 @@ lenList = []
 for user, userObj in userDict.items():
     lenList.append(len(userObj.ratingList))
 
-from numpy import numpy
+import numpy as np
 
 print(max(lenList))
 print(min(lenList))
