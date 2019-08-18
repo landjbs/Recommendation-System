@@ -6,9 +6,15 @@ userDict = load('data/outData/userDict_1.sav')
 movieDict = load('data/outData/movieDict.sav')
 
 lenList = []
+count = 0
 for user, userObj in userDict.items():
-    lenList.append(len(userObj.ratingList))
+    curLen = len(userObj.ratingList)
+    if curLen > 300:
+        print(curLen)
+        count += 1
+    lenList.append(curLen)
 
+print(count)
 import numpy as np
 
 print(max(lenList))

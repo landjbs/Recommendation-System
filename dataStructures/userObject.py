@@ -27,4 +27,4 @@ class User():
     def calc_average_rating(self):
         get_rating = lambda ratingObj : ratingObj.rating
         ratingList = [get_rating(ratingObj) for ratingObj in self.ratingList]
-        return np.mean(ratingList)
+        self.averageScore = np.mean(ratingList)
