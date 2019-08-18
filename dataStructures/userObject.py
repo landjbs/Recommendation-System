@@ -22,7 +22,7 @@ class User():
             sort_key = lambda ratingObj : ratingObj.rating
         else:
             raise ValueError('Axis must be either "date" or "rating".')
-        self.ratingList.sort(reverse=True, key=sort_key())
+        self.ratingList.sort(reverse=True, key=sort_key)
 
     def calc_average_rating(self):
         get_rating = lambda ratingObj : ratingObj.rating

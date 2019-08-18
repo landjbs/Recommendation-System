@@ -24,5 +24,5 @@ class RatingInstance():
     def __init__(self, movieId, userId, dateString, rating):
         self.movieId = movieId
         self.userId = userId
-        self.data = dateString
+        self.date = dateString
         self.rating = rating

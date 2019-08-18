@@ -25,8 +25,8 @@ def process_training_file(trainFilePath, outPath=None):
                 # unpack rating declaration
                 userId, rating, dateString = line.split(',')
                 # build rating object of current instance
-                currentRatingObj = RatingInstance(movieId=curMovieId,
-                                                    userId=userId,
+                currentRatingObj = RatingInstance(movieId=int(curMovieId),
+                                                    userId=int(userId),
                                                     dateString=dateString,
                                                     rating=rating)
                 # update User() obj of userId in userDict with current rating
@@ -36,12 +36,12 @@ def process_training_file(trainFilePath, outPath=None):
                     userDict.update({userId : User(id=userId)})
                     userDict[userId].add_rating(currentRatingObj)
 
-    # sort User() objects in userDict by rating
-    try:
-        for userObject in userDict:
-            userObject.sort(axis='rating')
-    except Exception as e:
-        print(f'Error: {e}')
+    # # sort User() objects in userDict by rating
+    # try:
+    #     for userObject in userDict.values():
+    #         userObject.sort_ratings(axis='rating')
+    # except Exception as e:
+    #     print(f'Error: {e}')
 
     if outPath:
         save(userDict, outPath)
